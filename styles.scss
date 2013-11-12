@@ -1,0 +1,373 @@
+// Import all the variables into the main css file.
+@import "variables";
+
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+// Include responsive Bootstrap styles
+// @import "bootstrap-responsive";
+
+$hn-red: 	    	#EB1C24;
+$hn-red-light:  	#F2E1E1;
+$hn-red-dark:   	#860000;
+$hn-gray-light: 	#4D4D4D;
+$hn-gray-dark:  	#181818;
+$hn-yellow: 		#FCEE21;
+$hn-orange-light:   #FBB03B;
+$hn-orange: 	    #F15A24;
+$hn-blue-light: 	#C5F2F2;
+$hn-blue: 			#0071BC;
+
+
+@mixin cornerRadius($corner) {
+  -webkit-border-radius: $corner;
+  -moz-border-radius: $corner;
+  border-radius: $corner;
+}
+@mixin clearfix {
+  zoom: 1;
+  overflow: hidden;
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+  &:after { clear: both; }
+}
+body {
+	background-color: $hn-gray-light;
+	height: 100%;
+}
+/* Top Bar */
+.topbarWrap {
+	background: $hn-red;
+	border-bottom: 3px solid $hn-red-dark;
+	height: 32px;
+	@include clearfix();
+	h1 {
+		background-image: url(../images/hn-logo.jpg);
+		background-repeat: no-repeat;
+		float: left;
+		margin: 0;
+		padding: 0;
+		text-indent: -9999px;
+		width: 400px;
+	}
+	h2 {
+		background-image: url(../images/oh-mark.jpg);
+		background-repeat: no-repeat;
+		float: right;
+		margin: 0;
+		padding: 0;
+		text-indent: -9999px;
+		width: 198px;
+	}
+}
+/* Content */
+.contentWrap {
+	background-image: url(../images/oh-bkg.jpg);
+	background-repeat: repeat-x;
+	@include clearfix();
+
+	.oh-icon {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+		z-index: 0;
+	}
+	.txnTitleWrap {
+		padding: 0 20px;
+		padding-left: 45px;
+		h2 {
+			color: $hn-yellow;
+			display: block;
+			float: left;
+			font-size: 32px;
+			font-family: Arial;
+			font-weight: normal;
+			margin: 0;
+			width: 135px;
+		}
+		p {
+			color: $hn-yellow;
+			font-size: 16px;
+			margin-bottom: 5px;
+			padding-top: 14px;
+		}
+		ul {
+			display: block;
+			margin-left: 135px;
+			@include clearfix();
+			li {
+				color: $hn-orange-light;
+				float: left;
+				list-style: none;
+				margin-right: 15px;
+				width: auto;
+				span {
+					background: black;
+					color: #eee;
+					display: inline-block;
+					font-size: 13px;
+					margin-right: 10px;
+					padding: 2px 5px;
+				}
+			}
+		}
+	}
+	.txnTabWrap {
+		.nav {
+			margin-bottom: 0;
+		}
+		.nav-tabs {
+			border-bottom: 5px solid $hn-yellow;
+			padding-left: 35px;
+			li {
+				margin-bottom: 0;
+				margin-right: 5px;
+				a {
+					background: #666;
+					border-bottom: 0;
+					color: #ccc;
+					text-align: center;
+					outline: none;
+					padding: 5px 0;
+					width: 155px;
+					@include cornerRadius(0);
+
+					&:hover {
+						background: #333;
+						border-color: #444;
+					}
+				}
+				&.active {
+					a {
+						background: $hn-yellow;
+						border-color: $hn-yellow;
+						border-top: 1px solid #fffbb7;
+						color: black;
+						&:hover {
+							background: $hn-yellow;
+						}
+						&:focus {
+							background: $hn-yellow;
+						}
+					}
+				}
+			}
+
+		}
+		.tab-content {
+			background: white;
+			min-height: 420px;
+			padding: 15px 30px;
+
+			.tab-pane {
+				.titleBox {
+					border-bottom: 3px solid #aaa;
+					padding: 0;
+				}
+				h3 {
+					background: $hn-orange;
+					border-left: 6px solid $hn-orange-light;
+					color: white;
+					display: inline-block;
+					font-size: 16px;
+					line-height: 100%;
+					margin: 0;
+					padding: 3px 10px;
+					width: 110px;
+				}
+				h4 {
+					background: $hn-blue-light;
+					border-bottom: 1px solid #a0e5fa;
+					color: $hn-blue;
+					font-size: 15px;
+					font-weight: normal;
+					margin-bottom: 0;
+					padding: 1px 5px;
+				}
+			}
+
+			.content-box {
+				background: #f9f9f9;
+				border-bottom: 1px solid $hn-blue-light;
+				margin-bottom: 10px;
+				padding: 6px;
+				@include clearfix();
+				h5 {
+					background: $hn-gray-light;
+					color: white;
+					display: block;
+					float: left;
+					margin: 0;
+					padding: 5px;
+					text-align: center;
+					width: 40px;
+				}
+				ul {
+					display: block;
+					list-style: none;
+					margin-left: 80px;
+					li {
+						float: left;
+						width: 33%;
+					}
+				}
+				&.warning {
+					background: #FCE8EB;
+					border-bottom: 1px solid #ffbcbc;
+					color: red;
+				}
+			}
+			.oh-table {
+				border-collapse: collapse;
+				margin: 15px 0;
+				width: 100%;
+				td {
+					border: 1px solid #ccc;
+					padding: 2px;
+					text-align: center;
+					//width: auto;
+					&.tableHeader {
+						background: $hn-gray-light;
+						color: white;
+						line-height: 17px;
+					}
+					&.w80 {
+						width: 80px;
+					}
+				}
+			}
+			.oh-image {
+				background: $hn-blue-light;
+				text-align: center;
+				margin: 0 auto;
+				margin-top: 10px;
+				padding: 10px;
+				width: 640px;
+				height: 500px;
+			}
+			.outputReport {
+				background: #F2F2DE;
+				border: 1px solid #f0e9d1;
+				margin-top: 15px;
+
+				pre {
+					background: none;
+					border: none;
+					font-family: "MingLiU", "新細明體";
+					letter-spacing: 1px;
+				}
+			}
+		}
+	}
+}
+/* Footer */
+.footer {
+	background-image: url(../images/oh-footer-bkg.jpg);
+	background-repeat: repeat-x;
+	height: 39px;
+	@include clearfix();
+}
+/* Treeview */
+.treeviewWrap {
+	cursor: pointer;
+	position: fixed;
+	top: 0;
+	//left: -400px;
+	height: 100%;
+	width: auto;
+}
+
+.treeviewBox {
+	background: $hn-red-light;
+	border-right: 1px solid #ccc;
+	display: none;
+	height: 100%;
+	width: auto;
+	overflow: scroll;
+	padding: 0px 30px 0px 10px;
+	&.treeOpen {
+		display: block;
+	}
+
+	#treecontrol {
+		border-bottom: 1px solid $hn-red-dark;
+		font-size: 12px;
+		text-align: right;
+		a {
+			color: #333;
+			display: inline-block;
+			padding: 0 2px;
+			&:hover {
+				background: $hn-red-dark;
+				color: white;
+			}
+		}
+	}
+	a {
+		color: black;
+		padding: 2px;
+		&:hover {
+			background: $hn-orange;
+			color: white;
+			text-decoration: none;
+
+		}
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		margin-top: 4px;
+	}
+	.hitarea {
+		background: url(../images/treeview/folder-closed.gif) 0 0 no-repeat;
+		height: 16px;
+		width: 20px;
+		margin-left: -16px;
+		float: left;
+		cursor: pointer;
+	}
+	li {
+		margin: 0;
+		padding: 3px 0pt 3px 16px;
+		line-height: 15px;
+		background: url(../images/treeview/treeview-arrow.gif) 2px 2px no-repeat;
+
+		.expandable-hitarea {
+			background: url(../images/treeview/folder-closed.gif) 0 0 no-repeat;
+		}
+		.collapsable-hitarea {
+			background: url(../images/treeview/folder.gif) 0 0 no-repeat;
+		}
+	}
+}
+
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+// Treeview Dragger
+.treeviewMenu {
+	a {
+		background: red;
+		background-image: url(../images/treeview-drag.jpg);
+		height: 80px;
+		width: 15px;
+		position: absolute;
+		top: 48px;
+		right: -15px;
+		outline: none;
+
+		&:hover {
+			background-position: 15px 0;
+		}
+	}
+}
+
+/* Misc */
+.aLeft {
+	text-align: left !important;
+}
