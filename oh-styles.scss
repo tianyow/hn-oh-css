@@ -385,6 +385,7 @@ _z-index:10;
 		margin: 0;
 		list-style: none;
 		margin-top: 4px;
+		min-width: 480px \9; /* IE8 width hack*/
 	}
 	.hitarea {
 		background: url(../images/treeview/folder-closed.gif) 0 0 no-repeat;
@@ -421,14 +422,14 @@ _z-index:10;
 		background: red;
 		background-image: url(../images/treeview-drag.jpg);
 		height: 80px;
-		width: 15px;
+		width: 25px;
 		position: absolute;
 		top: 48px;
-		right: -15px;
+		right: -25px;
 		outline: none;
 
 		&:hover {
-			background-position: 15px 0;
+			background-position: 25px 0;
 		}
 	}
 }
